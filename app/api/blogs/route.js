@@ -1,14 +1,23 @@
-import { db } from '@vercel/postgres';
+// app/api/blogs/route.js
+import { supabase } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
-
-const ADMIN_KEY = process.env.ADMIN_KEY || 'admin';
 
 export async function GET() {
   try {
-    const { rows } = await db.sql`SELECT * FROM blogs ORDER BY created_at DESC`;
-    return NextResponse.json(rows);
+    const { data, error } = await supabase
+      .from('blogs')
+      .select('*')
+      .order('created_at', { ascending: false });
+
+    if (error) throw error;
+    
+    return NextResponse.json(data || []);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error('Error fetching blogs:', error);
+    return NextResponse.json(
+      { error: error.message }, 
+      { status: 500 }
+    );
   }
 }
 
@@ -16,18 +25,34 @@ export async function POST(request) {
   try {
     const { title, description, content, imageUrl, adminKey } = await request.json();
     
-    if (adminKey !== ADMIN_KEY) {
-      return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
+    if (adminKey !== process.env.ADMIN_KEY) {
+      return NextResponse.json(
+        { error: 'Unauthorized' }, 
+        { status: 401 }
+      );
     }
 
-    const { rows } = await db.sql`
-      INSERT INTO blogs (title, description, content, image_url)
-      VALUES (${title}, ${description}, ${content}, ${imageUrl})
-      RETURNING *
-    `;
+    const { data, error } = await supabase
+      .from('blogs')
+      .insert([
+        {
+          title,
+          description,
+          content,
+          image_url: imageUrl,
+        }
+      ])
+      .select()
+      .single();
 
-    return NextResponse.json(rows[0]);
+    if (error) throw error;
+
+    return NextResponse.json(data);
   } catch (error) {
-    return NextResponse.json({ error: error.message }, { status: 500 });
+    console.error('Error creating blog:', error);
+    return NextResponse.json(
+      { error: error.message }, 
+      { status: 500 }
+    );
   }
 }
