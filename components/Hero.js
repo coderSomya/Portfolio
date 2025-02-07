@@ -1,6 +1,7 @@
 import React from 'react';
 import { ArrowRight } from 'lucide-react';
 import { MeteorsHero } from './MeteorsHero';
+import { Experiences } from './Experiences';
 
 const HeroSection = () => {
   return (

@@ -1,3 +1,4 @@
+import { Experiences } from "@/components/Experiences";
 import HeroSection from "@/components/Hero";
 import Image from "next/image";
 
@@ -5,6 +6,8 @@ export default function Home() {
   return (
    <div>
     <HeroSection/>
+    <Experiences/>
+
     </div>
   );
 }
