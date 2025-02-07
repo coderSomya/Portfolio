@@ -2,6 +2,32 @@
 import { supabase } from '@/lib/supabase';
 import { NextResponse } from 'next/server';
 
+export async function GET(request, { params }) {
+    try {
+      const { data, error } = await supabase
+        .from('blogs')
+        .select('*')
+        .eq('id', params.id)
+        .single();
+  
+      if (error) throw error;
+      if (!data) {
+        return NextResponse.json(
+          { error: 'Blog not found' }, 
+          { status: 404 }
+        );
+      }
+  
+      return NextResponse.json(data);
+    } catch (error) {
+      console.error('Error fetching blog:', error);
+      return NextResponse.json(
+        { error: error.message }, 
+        { status: 500 }
+      );
+    }
+}
+
 export async function DELETE(request, { params }) {
   try {
     const { adminKey } = await request.json();

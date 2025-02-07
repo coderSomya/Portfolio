@@ -4,6 +4,7 @@ import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/components/theme-provider"
 import './globals.css'
 import { Toaster } from "@/components/ui/toaster";
+import { FloatingNavbar } from "@/components/FloatingNavbar";
 
 
 const geistSans = Geist({
@@ -33,7 +34,8 @@ export default function RootLayout({ children }) {
             enableSystem
             disableTransitionOnChange
           >
-        <Navbar/>
+            <FloatingNavbar/>
+        {/* <Navbar/> */}
         {children}
         <Toaster />
 
