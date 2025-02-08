@@ -26,16 +26,12 @@ export function MeteorsHero() {
           </div>
 
           <h1 className="font-bold text-xl text-white mb-4 relative z-50">
-            Why does this exist?
+            Hi, I am Somyajeet
           </h1>
 
           <p className="font-normal text-base text-slate-500 mb-4 relative z-50">
-            I don&apos;t know actually. Maybe just because I thought I would run out of ideas so needs a place to keep them.
+          I share my experiences here...  
           </p>
-
-          <button className="border px-4 py-1 rounded-lg  border-gray-500 text-gray-300">
-            Explore
-          </button>
 
           {/* Meaty part - Meteor effect */}
           <Meteors number={20} />
