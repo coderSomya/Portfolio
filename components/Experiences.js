@@ -38,5 +38,17 @@ export function Experiences() {
       src: "/dendrite.jpeg",
     },
   ];
-  return <AnimatedItems items={experiences} />;
+  return (
+    <div>
+    <div className="text-center mb-8">
+    <h1 className="text-2xl font-bold mb-2 text-neutral-800 dark:text-neutral-200">
+      Experiences
+    </h1>
+    <p className="text-neutral-600 dark:text-neutral-400">
+      and organizations i've worked with
+    </p>
+  </div>
+  <AnimatedItems items={experiences} />
+</div>  
+);
 }
