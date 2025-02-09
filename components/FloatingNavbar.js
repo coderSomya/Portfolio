@@ -54,17 +54,20 @@ export function FloatingNavbar() {
   ];
   return (
     (
-    <div className="flex justify-center items-center">
-    <div className="flex items-center justify-center h-[10rem] w-full">
+        <nav className="bg-background/50 border-b shadow-md fixed w-full top-0 z-50 mb-4 backdrop-blur">
+
+    <div className="flex justify-center items-end">
+    <div className="flex items-end justify-center h-[8rem] w-full">
       <FloatingDock
         // only for demo, remove for production
-        mobileClassName="translate-y-20"
+        
         items={links} />
     </div>
     <div>
     <ModeToggle/>
 </div>   
 </div> 
+</nav>
 )
 
   );

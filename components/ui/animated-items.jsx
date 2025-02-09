@@ -51,7 +51,7 @@ export const AnimatedItems = ({
                   animate={{
                     opacity: isActive(index) ? 1 : 0.7,
                     scale: isActive(index) ? 1 : 0.95,
-                    z: isActive(index) ? 0 : -100,
+                    z: isActive(index) ? 10 : -100,
                     rotate: isActive(index) ? 0 : randomRotateY(),
                     zIndex: isActive(index)
                       ? 999
@@ -61,7 +61,7 @@ export const AnimatedItems = ({
                   exit={{
                     opacity: 0,
                     scale: 0.9,
-                    z: 100,
+                    z: 40,
                     rotate: randomRotateY(),
                   }}
                   transition={{
