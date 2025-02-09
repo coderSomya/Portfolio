@@ -24,11 +24,11 @@ export function FloatingNavbar() {
     },
 
     {
-      title: "Products",
+      title: "Tech",
       icon: (
         <IconTerminal2 className="h-full w-full text-neutral-500 dark:text-neutral-300" />
       ),
-      href: "/products",
+      href: "/tech",
     },
     {
       title: "Blogs",
