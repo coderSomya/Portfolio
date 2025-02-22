@@ -7,7 +7,7 @@ export function Experiences() {
         "Worked on core distributed systems, primarily on Rust. Built the entire C++ SDK",
       name: "Weilliptic",
       designation: "Software Engineer - 1",
-      src: "/stealth.jpeg",
+      src: "/weilliptic.png",
     },
     {
       description:
@@ -29,6 +29,13 @@ export function Experiences() {
       name: "NPCI",
       designation: "ML Engineering Intern",
       src: "/npci.png",
+    },
+    {
+      description:
+      "Led the e2e development of a Fintech B2B SaaS product",
+    name: "Dhruva Capital",
+    designation: "Tech Lead",
+    src: "/dc.png",
     },
     {
         description:

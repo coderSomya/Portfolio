@@ -36,7 +36,9 @@ export default function RootLayout({ children }) {
           >
             <FloatingNavbar/>
         {/* <Navbar/> */}
-        {children}
+        <div className="mt-32"> 
+            {children}
+          </div>
         <Toaster />
 
         </ThemeProvider>
